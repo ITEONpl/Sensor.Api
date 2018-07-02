@@ -1,3 +1,5 @@
+language: csharp
+image: microsoft/dotnet:latest
 stages:
 - build
 - cleanup_build
@@ -8,6 +10,8 @@ stages:
 
 before_script:
   - chmod -R a+x scripts
+  - docker -v
+  - dotnet --version
 
 build_job:
   stage: build
