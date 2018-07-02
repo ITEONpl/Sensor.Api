@@ -2,7 +2,7 @@ language: csharp
 dist: trusty
 sudo: required
 mono: none
-dotnet: 2.1.0
+dotnet: 2.1.301
 branches:
   only:
     - master
@@ -13,7 +13,7 @@ script:
   - ./scripts/build.sh
 after_success:
   - ./scripts/dotnet-publish.sh
-  - ./scripts/docker-publish-docker-hub.sh
+  - ./scripts/docker-publish.sh
 notifications:
   email:
     on_success: never
