@@ -38,11 +38,13 @@ docker_publish_job:
   when: on_success
   
 deploy_job:
-  image: docker:stable
+  image: docker:latest
+  services:
+  - docker:dind
   stage: docker_publish
   script:
   - docker version
-  - ./scripts/docker-publish.sh
+  - ./scripts/docker-publish-gitlab-containers.sh
   when: on_success
 
 cleanup_job:
