@@ -1,0 +1,45 @@
+stages:
+- build
+- cleanup_build
+- test
+- dotnet_publish
+- docker_publish
+- cleanup
+
+before_script:
+  - chmod -R a+x scripts
+
+build_job:
+  stage: build
+  script:
+  - ./scripts/build.sh
+
+cleanup_build_job:
+  stage: cleanup_build
+  script:
+  - cleanup build when failed
+  when: on_failure
+
+test_job:
+  stage: test
+  script:
+  - make test in the feature...
+  when: on_success
+  
+docker_publish_job:
+  stage: dotnet_publish
+  script:
+  - ./scripts/dotnet-publish.sh
+  when: on_success
+  
+deploy_job:
+  stage: docker_publish
+  script:
+  - ./scripts/docker-publish.sh
+  when: on_success
+
+cleanup_job:
+  stage: cleanup
+  script:
+  - cleanup after jobs
+  when: always
