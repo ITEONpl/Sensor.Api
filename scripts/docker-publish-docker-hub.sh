@@ -1,9 +1,8 @@
 #!/bin/bash
-BRANCH=$(git symbolic-ref --short HEAD)
-
 DOCKER_ENV=''
 DOCKER_TAG=''
-case "$BRANCH" in
+
+case "$TRAVIS_BRANCH" in
   "master")
     DOCKER_ENV=production
     DOCKER_TAG=latest
