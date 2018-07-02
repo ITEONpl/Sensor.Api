@@ -26,7 +26,7 @@ cleanup_build_job:
 test_job:
   stage: test
   script:
-  #- make test in the feature...
+  - 'echo TEST'
   when: on_success
   
 docker_publish_job:
