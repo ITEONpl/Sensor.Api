@@ -9,7 +9,7 @@ stages:
 
 before_script:
   - chmod -R a+x scripts
-  - docker -v
+  #- docker -v
   - dotnet --version
 
 build_job:
