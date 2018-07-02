@@ -9,12 +9,12 @@ stages:
 
 before_script:
   - chmod -R a+x scripts
-  #- docker -v
-  - dotnet --version
+  
 
 build_job:
   stage: build
   script:
+  - dotnet --version
   - ./scripts/build.sh
 
 cleanup_build_job:
@@ -26,18 +26,22 @@ cleanup_build_job:
 test_job:
   stage: test
   script:
+  - dotnet --version
   - 'echo TEST'
   when: on_success
   
 docker_publish_job:
   stage: dotnet_publish
   script:
+  - dotnet --version
   - ./scripts/dotnet-publish.sh
   when: on_success
   
 deploy_job:
+  image: docker:stable
   stage: docker_publish
   script:
+  - docker version
   - ./scripts/docker-publish.sh
   when: on_success
 
