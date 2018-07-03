@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensor.Api", "src\Sensor.Api\Sensor.Api.csproj", "{9B333759-3D74-4AEE-821D-610DF99D7781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sensor.Api", "src\Sensor.Api\Sensor.Api.csproj", "{9B333759-3D74-4AEE-821D-610DF99D7781}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{47C43580-F940-45C8-BCB5-D589E1BE51EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A76B1DEE-E09E-45E4-A3BD-7080D1495C62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B333759-3D74-4AEE-821D-610DF99D7781} = {47C43580-F940-45C8-BCB5-D589E1BE51EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2C474B5-B57A-4B72-850B-88D570E625FC}
