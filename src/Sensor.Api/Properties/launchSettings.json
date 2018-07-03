@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:2805",
-      "sslPort": 44364
+      "applicationUrl": "http://localhost:2953",
+      "sslPort": 44383
     }
   },
   "profiles": {
@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HTTPS_PORT": "44364"
+        "ASPNETCORE_HTTPS_PORT": "44383"
       }
     },
     "Sensor.Api": {
