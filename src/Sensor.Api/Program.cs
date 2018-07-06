@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Sensor.Api.Host;
 using Serilog;
 using Serilog.Events;
 
@@ -10,18 +11,11 @@ namespace Sensor.Api
     {
         public static int Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .Enrich.FromLogContext()
-                .WriteTo.ColoredConsole()
-                .CreateLogger();
-
-
             try
             {
+                var host = BuildWebHost(args);
                 Log.Information("Starting web host");
-                CreateWebHostBuilder(args).Build().Run();
+                host.Run();
                 return 0;
             }
             catch (Exception ex)
@@ -35,10 +29,12 @@ namespace Sensor.Api
             }
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        public static IWebHost BuildWebHost(string[] args)
         {
-            return WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            return WebServiceHost
+                .Create<Startup>(args: args)
+                .Build()
+                .GetWebHost();
         }
     }
 }
