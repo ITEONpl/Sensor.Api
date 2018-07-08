@@ -6,4 +6,7 @@ case "$TRAVIS_BRANCH" in
     ;;
 esac
 
+dotnet tool install --global dotnet-sonarscanner
+dotnet sonarscanner begin /k:"project-key"
 dotnet build -c Release --source "https://api.nuget.org/v3/index.json" --no-cache
+dotnet sonarscanner end
